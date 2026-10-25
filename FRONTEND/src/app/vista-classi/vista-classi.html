@@ -1,0 +1,68 @@
+<p>vista-classi works!</p>
+<h2>Elenco classi (dati grezzi)</h2>
+
+<div class="header">
+  <h1>Elenco classi</h1>
+  <span>Gestione Alunni</span>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        ID
+        <span class="filter-icon" (click)="showIdFilter = !showIdFilter">▼</span>
+        <div class="filter-box" *ngIf="showIdFilter">
+          <input type="text" [(ngModel)]="filtri.id" (input)="filtra()" placeholder="Filtra ID">
+        </div>
+      </th>
+      <th>
+        Nome
+        <span class="filter-icon" (click)="showNomeFilter = !showNomeFilter">▼</span>
+        <div class="filter-box" *ngIf="showNomeFilter">
+          <input type="text" [(ngModel)]="filtri.nome" (input)="filtra()" placeholder="Filtra Nome">
+        </div>
+      </th>
+      <th>
+        Cognome
+        <span class="filter-icon" (click)="showCognomeFilter = !showCognomeFilter">▼</span>
+        <div class="filter-box" *ngIf="showCognomeFilter">
+          <input type="text" [(ngModel)]="filtri.cognome" (input)="filtra()" placeholder="Filtra Cognome">
+        </div>
+      </th>
+      <th>
+        Anno
+        <span class="filter-icon" (click)="showAnnoFilter = !showAnnoFilter">▼</span>
+        <div class="filter-box" *ngIf="showAnnoFilter">
+          <input type="text" [(ngModel)]="filtri.anno" (input)="filtra()" placeholder="Filtra Anno">
+        </div>
+      </th>
+      <th>
+        Classe
+        <span class="filter-icon" (click)="showClasseFilter = !showClasseFilter">▼</span>
+        <div class="filter-box" *ngIf="showClasseFilter">
+          <input type="text" [(ngModel)]="filtri.nomeClasse" (input)="filtra()" placeholder="Filtra Classe">
+        </div>
+      </th>
+      <th>
+        Sezione
+        <span class="filter-icon" (click)="showSezioneFilter = !showSezioneFilter">▼</span>
+        <div class="filter-box" *ngIf="showSezioneFilter">
+          <input type="text" [(ngModel)]="filtri.sezione" (input)="filtra()" placeholder="Filtra Sezione">
+        </div>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let riga of datiFiltrati">
+      <td>{{ riga.id }}</td>
+      <td>{{ riga.nome }}</td>
+      <td>{{ riga.cognome }}</td>
+      <td>{{ riga.anno }}</td>
+      <td>{{ riga.nomeClasse }}</td>
+      <td>{{ riga.sezione }}</td>
+    </tr>
+  </tbody>
+</table>
+

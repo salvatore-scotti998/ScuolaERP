@@ -1,0 +1,41 @@
+server:
+  port: 8080         # porta su cui Spring Boot esegue il server web
+
+spring:
+  datasource:
+    # 🔹 URL di connessione Oracle (modifica se il tuo DB non è locale o non si chiama XE)
+    url: ${DB_URL}
+
+    # 🔹 Credenziali (quelle che usi su SQL Developer)
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+    # 🔹 Driver JDBC Oracle (necessario per evitare l’errore "Failed to determine driver class")
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    # 🔹 Hibernate auto DDL (gestione automatica tabelle)
+    #   'update' = crea/modifica tabelle automaticamente senza cancellare dati
+    hibernate:
+      ddl-auto: validate
+
+    # 🔹 Mostra nel log tutte le query SQL generate da Hibernate
+    show-sql: true
+
+    # 🔹 Dialetto SQL specifico per Oracle
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+
+  # 🔹 Configurazione DevTools (ricarica automatica, opzionale)
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+logging:
+  level:
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG       # mostra le query SQL nella console
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

@@ -1,0 +1,33 @@
+# Backend: file generati
+**/target/
+*.log
+
+# Frontend: dipendenze e file generati
+**/node_modules/
+**/dist/
+**/.angular/
+**/out-tsc/
+**/coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Configurazioni locali e variabili d'ambiente
+.env
+.env.*
+!.env.example
+**/application-local.properties
+**/application-local.yml
+**/application-local.yaml
+
+# Editor e IDE
+**/.idea/
+**/.vscode/
+**/.settings/
+**/.classpath
+**/.project
+*.iml
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
